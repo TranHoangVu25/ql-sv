@@ -1,0 +1,48 @@
+body {
+    padding: 0px;
+    margin: 0px;
+}
+
+div.form-student, div.list-student {
+    border: 1px solid #cccccc;
+    margin: 25px;
+    padding: 10px;
+    float: left;
+} 
+
+div.form-student {
+    width: 550px;
+}
+
+div.list-student {
+    width: 800px;
+}
+
+div.form-student h3 {
+    padding: 0px;
+    margin-top: 0px;
+}
+
+div.form-student label {
+    width: 100px;
+    float: left;
+}
+
+div.form-student input[type="text"], button {
+    margin-bottom: 10px;
+    width: 200px;
+    padding: 5px; 
+}
+
+button {
+    margin-top: 15px;
+}
+
+.error {
+    color: red;
+}
+/* Tăng độ rộng của bảng danh sách sinh viên */
+table#grid-students {
+    width: 100%; /* Đặt chiều rộng là 100% */
+}
+

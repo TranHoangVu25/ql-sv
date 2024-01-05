@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Quản lý sinh viên với Javascript</title>
+    <link rel="stylesheet" type="text/css" href="./css/style.css" />
+</head>
+<body> 
+    <div class="form-student" id="form-student"> 
+        <h3>Thông tin sinh viên</h3>
+        <label>Họ và tên</label>
+        <input type="text" id="fullname" />
+        <span id="fullname-error" class="error"></span>
+        <br/>
+
+        <label>Địa chỉ email</label>
+        <input type="text" id="email"  />
+        <span id="email-error" class="error"></span>
+        <br/>
+
+        <label>Số điện thoại</label>
+        <input type="text" id="phone"  />
+        <span id="phone-error" class="error"></span>
+        <br/>
+
+        <label>Địa chỉ</label>
+        <input type="text" id="address"  />
+        <span id="address-error" class="error"></span>
+        <br/>
+
+        <label>Giới tính</label>
+        <input type="radio" name="gender" id="male" value="1" /> Nam
+        <input type="radio" name="gender" id="female" value="2" /> Nữ
+        <span id="gender-error" class="error"></span>
+        <br/>
+
+        <label>&nbsp;</label>
+        <button id="save-button" onclick="save()">Lưu lại</button>
+    </div>
+
+    <div class="list-student" id="list-student"> 
+        <h3>Danh sách sinh viên</h3>
+        <table id="grid-students" width="650" border="1" cellpadding="0" cellpadding="0">
+        </table>
+    </div>
+
+    <div class="form-student" id="form-edit-student" style="display: none;">
+        <h3>Sửa thông tin sinh viên</h3>
+        <label>Họ và tên</label>
+        <input type="text" id="edit-fullname" />
+        <br/>
+    
+        <label>Địa chỉ email</label>
+        <input type="text" id="edit-email" />
+        <br/>
+    
+        <label>Số điện thoại</label>
+        <input type="text" id="edit-phone" />
+        <br/>
+    
+        <label>Địa chỉ</label>
+        <input type="text" id="edit-address" />
+        <br/>
+    
+        <label>Giới tính</label>
+        <input type="radio" name="edit-gender" id="edit-male" value="1" /> Nam
+        <input type="radio" name="edit-gender" id="edit-female" value="2" /> Nữ
+        <br/>
+    
+        <label>&nbsp;</label>
+        <button onclick="updateStudent()">Cập nhật</button>
+        <input type="hidden" id="edit-student-index" />
+
+    </div>
+
+    <div class="list-student search-filter" id="list-student-filter">
+        <h3>Chức năng cơ bản</h3>
+        <table id="grid-students-filter" width="650" boder="1" cellpadding="0" cellpadding="0">
+        </table>
+    
+        <!-- Thêm class mới vào đây -->
+        <div class="function-panel">
+            <!-- Phần tìm kiếm, lọc, sắp xếp sẽ được đặt ở đây -->
+            <label>Tìm kiếm</label>
+            <input type="text" id="search-term" />
+            <button onclick="searchStudents()">Tìm kiếm</button>
+            
+            <label>Sắp xếp theo tên</label>
+            <select id="sort-order">
+                <option value="asc">A-Z</option>
+                <option value="desc">Z-A</option>
+            </select>
+            <button onclick="sortStudents(document.getElementById('sort-order').value)">Sắp xếp</button>
+
+            <select id="filter-gender">
+                <option value="all">Tất cả</option>
+                <option value="1">Nam</option>
+                <option value="2">Nữ</option>
+            </select>
+            
+            <input type="text" id="filter-location" placeholder="Nhập quê quán...">
+            <input type="text" id="filter-name" placeholder="Nhập tên sinh viên...">
+            
+            <button onclick="filterStudents()">Lọc</button>
+            <button onclick="clearFilters()">Xóa bộ lọc</button>
+
+            <button onclick="exportToExcel()">Tải danh sách về Excel</button>
+        </div>
+    </div>
+    
+    <script src="https://cdn.jsdelivr.net/npm/lodash@4.17.21/lodash.min.js"></script>
+
+    <script src="./js/student.js"></script>
+   
+    
+    <!-- Thêm các phần tử input cho các thuộc tính khác nếu cần -->
+    
+</body>
+</html>
